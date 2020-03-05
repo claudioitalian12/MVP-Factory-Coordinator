@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeVC.swift
 //  MVP+Factory+Coordinator
 //
 //  Created by claudio cavalli on 05/03/2020.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+protocol HomeView: class {
+    func setView()
 }
 
+class HomeVC: UIViewController {
+    var presenter: HomePresenter!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.load()
+        // Do any additional setup after loading the view.
+    }
+}
